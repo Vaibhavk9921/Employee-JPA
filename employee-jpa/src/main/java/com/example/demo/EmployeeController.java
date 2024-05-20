@@ -62,6 +62,10 @@ public class EmployeeController {
 	}
 	@GetMapping("/get")
 	public Employee getDataById(@RequestParam("id") int id) {
+		if(emp==null) 
+		{
+			throw new EmployeeNotFoundException();
+		}
 		return emp.findById(id).get();
 	}
 
